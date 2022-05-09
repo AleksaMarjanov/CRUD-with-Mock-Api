@@ -25,10 +25,26 @@ const Read = () => {
     localStorage.setItem("lastName", id.row.lastName);
   };
 
+  const getData = () => {
+    axios
+      .get(`https://6277c8b22f94a1d7061233cb.mockapi.io/Crud`)
+      .then((getData) => {
+        setApiData(getData.data);
+      });
+  };
+
+  const onDelete = (id) => {
+    axios
+      .delete(`https://6277c8b22f94a1d7061233cb.mockapi.io/Crud/${id}`)
+      .then(() => {
+        getData();
+      });
+  };
+
   const columns = [
     { field: "id", headerName: "ID", width: 20 },
-    { field: "firstName", headerName: "First name", width: 120 },
-    { field: "lastName", headerName: "Last name", width: 120 },
+    { field: "firstName", headerName: "First name", width: 150 },
+    { field: "lastName", headerName: "Last name", width: 250 },
     {
       field: "Update",
       renderCell: (data) => {
@@ -37,9 +53,6 @@ const Read = () => {
             <EditSharpIcon
               onClick={() => {
                 setData(data);
-                console.log(data.row.id); // here we get data
-                console.log(data.row.firstName);
-                console.log(data.row.lastName);
               }}
               sx={{ color: "green" }}
             />
@@ -49,13 +62,15 @@ const Read = () => {
     },
     {
       field: "Delete",
-      renderCell: (cellValues) => {
+      renderCell: (data) => {
         return (
-          <Link to="/delete">
-            <IconButton aria-label="delete" size="large">
-              <DeleteIcon fontSize="inherit" sx={{ color: "red" }} />
-            </IconButton>
-          </Link>
+          <IconButton
+            onClick={() => onDelete(data.id)}
+            aria-label="delete"
+            size="large"
+          >
+            <DeleteIcon fontSize="inherit" sx={{ color: "red" }} />
+          </IconButton>
         );
       },
     },
