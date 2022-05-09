@@ -7,8 +7,10 @@ import FormControl from "@mui/material/FormControl";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import Button from "@mui/material/Button";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Update = () => {
+  let navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [ID, setID] = useState(null);
@@ -21,10 +23,14 @@ const Update = () => {
   };
   // Sending updated data with METHOD put to the Mock API
   const sendDataToAPI = () => {
-    axios.put(`https://6277c8b22f94a1d7061233cb.mockapi.io/Crud/${ID}`, {
-      firstName,
-      lastName,
-    });
+    axios
+      .put(`https://6277c8b22f94a1d7061233cb.mockapi.io/Crud/${ID}`, {
+        firstName,
+        lastName,
+      })
+      .then(() => {
+        navigate("/Read");
+      });
   };
   // Updating item in the localStorage by grabing its unique ID
   useEffect(() => {

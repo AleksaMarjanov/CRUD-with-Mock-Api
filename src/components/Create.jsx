@@ -7,8 +7,10 @@ import FormControl from "@mui/material/FormControl";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import Button from "@mui/material/Button";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
+  let navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
@@ -20,10 +22,14 @@ const Create = () => {
   };
 
   const sendDataToAPI = () => {
-    axios.post(`https://6277c8b22f94a1d7061233cb.mockapi.io/Crud`, {
-      firstName,
-      lastName,
-    });
+    axios
+      .post(`https://6277c8b22f94a1d7061233cb.mockapi.io/Crud`, {
+        firstName,
+        lastName,
+      })
+      .then(() => {
+        navigate("/Read ");
+      });
   };
 
   return (
