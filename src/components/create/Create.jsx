@@ -28,12 +28,13 @@ const Create = () => {
         lastName,
       })
       .then(() => {
-        navigate("/Read ");
+        navigate("/read");
       });
   };
 
   return (
     <>
+      <h3> Crud Operations</h3>
       <Box sx={{ "& > :not(style)": { m: 1 } }}>
         <FormControl variant="standard">
           <InputLabel htmlFor="firstName">First Name</InputLabel>

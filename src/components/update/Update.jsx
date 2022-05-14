@@ -29,7 +29,7 @@ const Update = () => {
         lastName,
       })
       .then(() => {
-        navigate("/Read");
+        navigate("/read");
       });
   };
   // Updating item in the localStorage by grabing its unique ID
@@ -41,6 +41,7 @@ const Update = () => {
 
   return (
     <>
+      <h3> Crud Operations</h3>
       <Box sx={{ "& > :not(style)": { m: 1 } }}>
         <FormControl variant="standard">
           <InputLabel htmlFor="firstName">First Name</InputLabel>
