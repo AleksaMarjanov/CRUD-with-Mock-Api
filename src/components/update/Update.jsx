@@ -40,12 +40,15 @@ const Update = () => {
   }, [setFirstName, setLastName, setID]);
 
   return (
-    <>
+    <div className="update">
       <h3> Update User</h3>
       <Box sx={{ "& > :not(style)": { m: 1 } }}>
         <FormControl variant="standard">
-          <InputLabel htmlFor="firstName">First Name</InputLabel>
+          <InputLabel className="inputLabel" htmlFor="firstName">
+            First Name
+          </InputLabel>
           <Input
+            className="input"
             name="fName"
             id="firstName"
             value={firstName}
@@ -53,7 +56,7 @@ const Update = () => {
             onChange={handleFNameChange}
             startAdornment={
               <InputAdornment position="start">
-                <AccountCircle />
+                <AccountCircle className="icon" />
               </InputAdornment>
             }
           />
@@ -61,7 +64,9 @@ const Update = () => {
       </Box>
       <Box sx={{ "& > :not(style)": { m: 1 } }}>
         <FormControl variant="standard">
-          <InputLabel htmlFor="firstName">Last Name</InputLabel>
+          <InputLabel className="inputLabel" htmlFor="firstName">
+            Last Name
+          </InputLabel>
           <Input
             name="lName"
             id="lastName"
@@ -70,7 +75,7 @@ const Update = () => {
             onChange={handleLNameChange}
             startAdornment={
               <InputAdornment position="start">
-                <AccountCircle />
+                <AccountCircle className="icon" />
               </InputAdornment>
             }
           />
@@ -79,7 +84,7 @@ const Update = () => {
       <Button onClick={sendDataToAPI} variant="outlined" size="small">
         Update
       </Button>
-    </>
+    </div>
   );
 };
 
