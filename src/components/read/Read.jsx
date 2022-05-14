@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
 // import Button from "@mui/material/Button";
@@ -6,6 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditSharpIcon from "@mui/icons-material/EditSharp";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Read = () => {
   const [apiData, setApiData] = useState([]);
@@ -42,9 +44,9 @@ const Read = () => {
   };
 
   const columns = [
-    { field: "id", headerName: "ID", width: 20 },
-    { field: "firstName", headerName: "First name", width: 150 },
-    { field: "lastName", headerName: "Last name", width: 250 },
+    { field: "id", headerName: "ID", width: 70 },
+    { field: "firstName", headerName: "First name", width: 300 },
+    { field: "lastName", headerName: "Last name", width: 300 },
     {
       field: "Update",
       renderCell: (data) => {
@@ -75,17 +77,24 @@ const Read = () => {
       },
     },
   ];
+  let navigate = useNavigate();
+  const navigateBack = () => navigate("/");
 
   return (
-    <div style={{ marginTop: "20px", height: 400, width: "50%" }}>
-      <DataGrid
-        rows={apiData}
-        getRowId={(row) => row.id}
-        columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-      />
-    </div>
+    <>
+      <div style={{ marginTop: "20px", height: 400, width: "50%" }}>
+        <DataGrid
+          rows={apiData}
+          getRowId={(row) => row.id}
+          columns={columns}
+          pageSize={5}
+          rowsPerPageOptions={[5]}
+        />
+      </div>
+      <button className="btn btn-success mt-5" onClick={navigateBack}>
+        Create User
+      </button>
+    </>
   );
 };
 
