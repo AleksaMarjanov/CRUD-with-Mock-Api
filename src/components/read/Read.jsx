@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
+import '../../App.css';
 // import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -14,7 +15,7 @@ const Read = () => {
 
   useEffect(() => {
     axios
-      .get(`https://6277c8b22f94a1d7061233cb.mockapi.io/Crud`)
+      .get(`https://6325d71d4cd1a2834c458ea8.mockapi.io/CrudApp`)
       .then((getData) => {
         setApiData(getData.data);
         console.log(getData.data);
@@ -29,7 +30,7 @@ const Read = () => {
 
   const getData = () => {
     axios
-      .get(`https://6277c8b22f94a1d7061233cb.mockapi.io/Crud`)
+      .get(`https://6325d71d4cd1a2834c458ea8.mockapi.io/CrudApp`)
       .then((getData) => {
         setApiData(getData.data);
       });
@@ -37,7 +38,7 @@ const Read = () => {
 
   const onDelete = (id) => {
     axios
-      .delete(`https://6277c8b22f94a1d7061233cb.mockapi.io/Crud/${id}`)
+      .delete(`https://6325d71d4cd1a2834c458ea8.mockapi.io/CrudApp/${id}`)
       .then(() => {
         getData();
       });
@@ -81,8 +82,9 @@ const Read = () => {
   const navigateBack = () => navigate("/");
 
   return (
-    <>
-      <div style={{ marginTop: "20px", height: 400, width: "50%" }}>
+    
+    <div className="readMenu">
+      <div style={{ marginTop: "20px", height: 400, width: "100%" }}>
         <DataGrid
           rows={apiData}
           getRowId={(row) => row.id}
@@ -94,7 +96,7 @@ const Read = () => {
       <button className="btn btn-success mt-5" onClick={navigateBack}>
         Create User
       </button>
-    </>
+    </div>
   );
 };
 

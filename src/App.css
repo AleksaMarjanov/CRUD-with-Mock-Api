@@ -1,8 +1,48 @@
 .main {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
+.datagrid {
+  display: flex;
+  width: 100%;
+  /* height: 100%; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: screen;
+}
+
+.createMenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.create-menu-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.readMenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 910px;
+}
+
+@media screen and (max-width: 480px) {
+  .readMenu {
+    width: 70%;
+    overflow: hidden;
+  }
+}

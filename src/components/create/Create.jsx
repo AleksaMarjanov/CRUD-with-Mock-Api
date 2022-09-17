@@ -23,7 +23,7 @@ const Create = () => {
 
   const sendDataToAPI = () => {
     axios
-      .post(`https://6277c8b22f94a1d7061233cb.mockapi.io/Crud`, {
+      .post(`https://6325d71d4cd1a2834c458ea8.mockapi.io/CrudApp`, {
         firstName,
         lastName,
       })
@@ -33,9 +33,10 @@ const Create = () => {
   };
 
   return (
-    <>
+    <div className="createMenu">
       <h3> Crud Operations</h3>
       <Box sx={{ "& > :not(style)": { m: 1 } }}>
+      <div className="create-menu-items">
         <FormControl variant="standard">
           <InputLabel htmlFor="firstName">First Name</InputLabel>
           <Input
@@ -50,8 +51,8 @@ const Create = () => {
             }
           />
         </FormControl>
-      </Box>
-      <Box sx={{ "& > :not(style)": { m: 1 } }}>
+        {/* </Box> */}
+        {/* <Box sx={{ "& > :not(style)": { m: 1 } }}> */}
         <FormControl variant="standard">
           <InputLabel htmlFor="firstName">Last Name</InputLabel>
           <Input
@@ -66,11 +67,13 @@ const Create = () => {
             }
           />
         </FormControl>
+
+      </div>
       </Box>
       <Button onClick={sendDataToAPI} variant="outlined" size="small">
         Submit
       </Button>
-    </>
+    </div>
   );
 };
 

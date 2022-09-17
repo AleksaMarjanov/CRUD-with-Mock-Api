@@ -24,7 +24,7 @@ const Update = () => {
   // Sending updated data with METHOD put to the Mock API
   const sendDataToAPI = () => {
     axios
-      .put(`https://6277c8b22f94a1d7061233cb.mockapi.io/Crud/${ID}`, {
+      .put(`https://6325d71d4cd1a2834c458ea8.mockapi.io/CrudApp/${ID}`, {
         firstName,
         lastName,
       })
